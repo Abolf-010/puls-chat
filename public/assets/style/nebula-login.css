@@ -1,0 +1,22 @@
+
+/* Nebula login page */
+body {
+  background: radial-gradient(ellipse at top, #1a1040 0%, #0d1117 55%) !important;
+  min-height: 100dvh;
+}
+header h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+header p {
+  color: var(--nb-text-muted, #f5f7fa78) !important;
+}
+#signinCon button,
+#SubCon button {
+  height: 7vh;
+  min-height: 48px;
+  box-shadow: 0 8px 28px rgba(139, 92, 246, 0.4);
+}
+footer span {
+  color: #a78bfa !important;
+}

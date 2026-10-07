@@ -1,0 +1,189 @@
+/* ===== Nebula design tokens (demo polish) ===== */
+:root {
+  --nb-bg: #0d1117;
+  --nb-bg-elevated: #161b22;
+  --nb-surface: #1f2633;
+  --nb-surface-2: #252b3b;
+  --nb-primary: #8b5cf6;
+  --nb-primary-hover: #7c3aed;
+  --nb-primary-soft: rgba(139, 92, 246, 0.35);
+  --nb-text: #f5f7fa;
+  --nb-text-muted: rgba(245, 247, 250, 0.65);
+  --nb-border: #2a3142;
+  --nb-danger: #7f1d1d;
+  --nb-radius: 1rem;
+  --nb-radius-lg: 1.25rem;
+  --nb-font: system-ui, -apple-system, "Segoe UI", Roboto, "Vazirmatn", sans-serif;
+}
+
+html, body {
+  background: var(--nb-bg) !important;
+  color: var(--nb-text);
+  font-family: var(--nb-font);
+}
+
+/* Bottom nav */
+#bottomList {
+  background: var(--nb-bg-elevated) !important;
+  border-top: 1px solid var(--nb-border);
+}
+#bottomList li {
+  transition: color 0.15s ease;
+}
+#bottomList li[style*="97, 50, 219"],
+#bottomList .active {
+  color: var(--nb-primary) !important;
+}
+
+/* Search */
+header input,
+#searchInp,
+.search-bar input {
+  background: var(--nb-surface) !important;
+  border: 1px solid var(--nb-border) !important;
+  border-radius: 999px !important;
+  color: var(--nb-text) !important;
+}
+
+/* Conversation cards */
+main > .conv {
+  background: transparent;
+  border-radius: var(--nb-radius);
+  padding: 10px 4%;
+  transition: background 0.12s ease;
+}
+main > .conv:active {
+  background: var(--nb-surface);
+}
+main > .conv h4 {
+  color: var(--nb-text);
+  font-weight: 600;
+}
+main > .conv .LM {
+  color: var(--nb-text-muted) !important;
+  font-size: 0.85rem;
+}
+main > .conv .LMT {
+  color: var(--nb-text-muted) !important;
+  font-size: 0.75rem;
+}
+main > .conv .UNM {
+  background: var(--nb-primary) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  min-width: 1.25rem;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+}
+main > .conv img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* FAB / plus */
+.plus,
+button.plus,
+#plusBtn {
+  background: var(--nb-primary) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+}
+
+/* Call rows */
+main > .call {
+  border-radius: var(--nb-radius);
+  padding: 10px 4%;
+}
+main > .call h4 { color: var(--nb-text); }
+main > .call .ST { color: var(--nb-text-muted); font-size: 0.85rem; }
+main > .call .call-redial-btn {
+  background: var(--nb-primary-soft) !important;
+  border: none !important;
+  border-radius: 50%;
+  color: var(--nb-primary) !important;
+}
+
+/* Chat bubbles — Nebula-ish */
+.message.Ma .msg-bubble,
+.message.Ma > div {
+  background: var(--nb-primary-soft) !important;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+.message.Mb .msg-bubble,
+.message.Mb > div {
+  background: var(--nb-surface) !important;
+}
+#chatheader {
+  background: var(--nb-bg-elevated) !important;
+  border-bottom: 1px solid var(--nb-border);
+}
+#chatfooter {
+  background: var(--nb-bg-elevated) !important;
+  border-top: 1px solid var(--nb-border);
+}
+#chatInp {
+  background: var(--nb-surface) !important;
+  border-radius: 999px !important;
+  color: var(--nb-text) !important;
+  border: 1px solid var(--nb-border) !important;
+}
+#sendButton {
+  color: var(--nb-primary) !important;
+}
+
+/* Login polish (if same tokens load on login page too) */
+body[data-page="login"] header h1 {
+  color: var(--nb-text);
+}
+#signinCon button,
+#SubCon button,
+#login #signinCon button {
+  background: var(--nb-primary) !important;
+  border-radius: 999px !important;
+  font-weight: 600;
+}
+#login #DataCon input,
+#signUp #dataCon input {
+  background: var(--nb-surface) !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--nb-border) !important;
+}
+
+/* Settings / AI already use panels */
+.settings-block,
+.ai-block {
+  background: var(--nb-surface) !important;
+  border-radius: var(--nb-radius-lg) !important;
+}
+.settings-logout-btn {
+  background: var(--nb-danger) !important;
+  border-radius: 12px !important;
+}
+.ai-badge {
+  background: #312e81 !important;
+  color: #c4b5fd !important;
+}
+
+/* Chips / top filters */
+#topList li {
+  color: var(--nb-text-muted);
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+#topList li.activeLI {
+  background: var(--nb-primary-soft);
+  color: var(--nb-text) !important;
+  font-weight: 600;
+}
+
+/* Empty / profile already styled — accent primary */
+.peer-profile-btn {
+  background: var(--nb-primary) !important;
+}
+.new-chat-option,
+.new-chat-create {
+  background: var(--nb-primary) !important;
+}

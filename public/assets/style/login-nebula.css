@@ -1,0 +1,21 @@
+
+/* Nebula login accents */
+body {
+  background: var(--nb-bg, #0d1117) !important;
+}
+#signinCon button,
+#SubCon button {
+  background: #8b5cf6 !important;
+  border-radius: 1.25rem !important;
+}
+#DataCon input,
+#dataCon input,
+#login input,
+#signUp input {
+  background: #1f2633 !important;
+  border-radius: 1.25rem !important;
+  color: #f5f7fa !important;
+}
+header h1 { color: #f5f7fa; }
+header p, footer p { color: rgba(245,247,250,0.65); }
+footer span, footer #authToggle { color: #a78bfa !important; }

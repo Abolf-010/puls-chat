@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#7c3aed" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Chat" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./assets/static/icons/icon-192.png" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="assets/style/home.css">
+    <link rel="stylesheet" href="./assets/style/nebula-tokens.css" />
+    <link rel="stylesheet" href="assets/style/nebula.css">
+    <link rel="stylesheet" href="assets/style/nebula-p2.css">
+    <link rel="stylesheet" href="assets/style/presence.css">
+    <link rel="stylesheet" href="assets/style/settings-panel.css">
+    <link rel="stylesheet" href="assets/style/ai-panel.css">
+    <link rel="stylesheet" href="assets/style/new-chat.css">
+    <link rel="stylesheet" href="assets/style/responsive.css">
+    <link rel="stylesheet" href="assets/static/font/font-awesome/css/all.css">
+    <script src="assets/script/auth-gate.js" data-auto="app"></script>
+    <script src="assets/script/boot-offline.js"></script>
+    <script src="assets/script/offline-store.js"></script>
+    <script src="assets/script/pwa-register.js" defer></script>
+    <script src="assets/script/push-register.js" defer></script>
+    <script src="assets/script/outbox-debug.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav id="FN">
+            <div id="SC">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="SINP" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+            </div>
+            <div id="IC">
+                <img id="ali" src="assets/static/image/wallpaperflare.com_wallpaper (4).jpg" alt="profile">
+            </div>
+        </nav>
+        <nav id="SN">
+            <ul id="topList">
+                <li class="activeLI">All</li>
+                <li>Unread</li>
+                <li>Personal</li>
+                <li>Groups</li>
+                <li>Chanells</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="plus"><i class="fa-light fa-plus"></i></div>
+        <div id="blur"></div>
+        </main>
+    <footer>
+        <nav>
+            <ul id="bottomList">
+                <li class="fa-regular fa-message" style="color: #6132DB;"></li>
+                <li class="fa-regular fa-phone"></li>
+                <li class="fa-regular fa-address-book"></li>
+                <li class="fa-regular fa-microchip-ai"></li>
+                <li class="fa-regular fa-gear"></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+<audio id="remoteAudio" autoplay playsinline></audio>
+<script src="https://192.168.1.100/socket.io/socket.io.js" ></script>
+<script>
+    (function () {
+      var start = function () {
+        var s = document.createElement('script');
+        s.src = '/assets/script/main.js'; // or main.ts bundle path
+        s.defer = true;
+        s.type="module"
+        document.body.appendChild(s);
+      };
+
+      if (window.__authGatePromise) {
+        window.__authGatePromise.then(function (r) {
+          if (r && r.ok && !r.redirected) start();
+          // if redirected to login, do nothing
+        });
+      } else {
+        // fallback if data-auto missing
+        window.__authGate({ mode: 'app' }).then(function (r) {
+          if (r && r.ok && !r.redirected) start();
+        });
+      }
+    })();
+  </script>
+
+</html>

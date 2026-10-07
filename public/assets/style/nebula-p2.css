@@ -1,0 +1,145 @@
+
+/* ===== Nebula P2: Calls + Contacts ===== */
+
+main > .call {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 4%;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-sizing: border-box;
+}
+main > .call img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+main > .call .call-body {
+  min-width: 0;
+}
+main > .call h4 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  color: #f5f7fa;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+main > .call .ST {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(245,247,250,0.65);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+main > .call.call-missed .ST,
+main > .call.call-missed h4 {
+  color: #f87171;
+}
+main > .call.call-in .ST i {
+  color: #4ade80;
+}
+main > .call.call-out .ST i {
+  color: #a78bfa;
+}
+main > .call .call-redial-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.2);
+  color: #a78bfa;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+main > .call .call-redial-btn:active {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+/* Contacts */
+main > .contact-row,
+.contacts-wrap .contact-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 4%;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-sizing: border-box;
+  width: 100%;
+}
+main > .contact-row img,
+.contact-row img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.contact-row h4,
+.contact-row .contact-name {
+  margin: 0;
+  color: #f5f7fa;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.contact-row .contact-status,
+.contact-row .LM {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: rgba(245,247,250,0.65);
+}
+.contact-row .contact-status.online {
+  color: #4ade80;
+}
+.contact-actions {
+  display: flex;
+  gap: 8px;
+}
+.contact-actions button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.18);
+  color: #c4b5fd;
+  cursor: pointer;
+}
+
+/* Top filter chips */
+#topList {
+  gap: 8px;
+}
+#topList li {
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: transparent;
+  color: rgba(245,247,250,0.65);
+  font-size: 0.85rem;
+}
+#topList li.activeLI {
+  background: rgba(139, 92, 246, 0.25);
+  color: #c4b5fd;
+  font-weight: 600;
+}
+
+.settings-panel .settings-block h4 {
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+.settings-panel .settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: #f5f7fa;
+}
+.settings-panel .settings-row:last-child {
+  border-bottom: none;
+}

@@ -1,0 +1,396 @@
+
+/* =========================================================
+   Fluid responsive — keep proportions, full layout access
+   NO fixed phone-shell / static half-width desktop
+   Load AFTER home.css
+   ========================================================= */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+
+body:not([data-page="login"]) {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100%;
+  height: 100dvh !important;
+  height: 100svh !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  grid-template-rows: auto minmax(0, 1fr) auto !important;
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+    env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  box-sizing: border-box;
+}
+
+/* ---------- Header: shrink gracefully ---------- */
+header {
+  min-height: 0;
+  max-height: none;
+}
+
+#FN {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem !important;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#SC {
+  min-width: 0;
+  width: 100%;
+}
+
+#SINP {
+  width: 100% !important;
+  max-width: 100%;
+  min-height: 2.5rem;
+  height: auto !important;
+  font-size: 1rem !important; /* ≥16px reduces iOS zoom without hard px shell */
+  box-sizing: border-box;
+}
+
+#IC img,
+#ali {
+  width: clamp(2.5rem, 9vw, 3.25rem) !important;
+  height: clamp(2.5rem, 9vw, 3.25rem) !important;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#SN,
+#topList {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#topList {
+  display: flex !important;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+  padding: 0.25rem 0.5rem 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+#topList::-webkit-scrollbar {
+  display: none;
+}
+#topList > li {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+}
+
+/* ---------- Main: always scrollable content area ---------- */
+main {
+  min-height: 0 !important; /* critical for grid child scroll */
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+main > .conv {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  gap: 0.65rem;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 0.85rem !important;
+}
+
+main > .conv img {
+  width: clamp(2.75rem, 11vw, 3.5rem) !important;
+  height: clamp(2.75rem, 11vw, 3.5rem) !important;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+main > .conv .TUCon,
+main > .conv .name,
+main > .conv .LM,
+main > .conv h4 {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.msg p,
+.settings-name {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ---------- Footer: always visible, not crushed ---------- */
+footer {
+  min-height: 0;
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 20;
+  background: #0d1117;
+}
+
+footer > nav,
+footer > nav > ul {
+  width: 100%;
+  height: auto !important;
+  min-height: 2.75rem;
+  padding: 0.35rem 0 !important;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+footer > nav > ul > li {
+  font-size: clamp(1.15rem, 4.5vw, 1.5rem) !important;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  display: grid !important;
+  place-items: center;
+}
+
+/* ---------- Chat: same fluid idea, full available space ---------- */
+#chatPage {
+  position: fixed !important;
+  inset: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100dvh !important;
+  height: 100svh !important;
+  transform: none !important;
+  display: grid !important;
+  grid-template-rows: auto minmax(0, 1fr) auto !important;
+  justify-items: stretch !important;
+  align-items: stretch !important;
+  box-sizing: border-box;
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+    env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  z-index: 5;
+}
+
+#chatPage #chatHeader,
+#chatPage #chatheader {
+  width: 100% !important;
+  max-width: 100%;
+  border-radius: 0 !important;
+  box-sizing: border-box;
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem !important;
+  min-height: 3rem;
+  align-items: center;
+}
+
+#chatPeerAvatar,
+#chatPage #chatHeader img,
+#chatPage #chatheader img {
+  width: clamp(2.5rem, 9vw, 3.5rem) !important;
+  height: clamp(2.5rem, 9vw, 3.5rem) !important;
+  object-fit: cover;
+}
+
+#contentName,
+#chatPage .contentData {
+  min-width: 0;
+  overflow: hidden;
+}
+
+#contentName {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(0.95rem, 3.5vw, 1.15rem) !important;
+}
+
+#messages,
+#chatPage #messages {
+  min-height: 0 !important;
+  width: 100% !important;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  padding: 0.5rem 0.75rem;
+}
+
+#messages .ma,
+#messages .you,
+.msg {
+  max-width: min(85%, 36rem);
+}
+
+#chatfooter,
+#chatPage #chatfooter {
+  width: 100% !important;
+  box-sizing: border-box;
+  display: grid !important;
+  grid-template-columns: auto auto minmax(0, 1fr) auto !important;
+  gap: 0.35rem;
+  padding: 0.4rem 0.5rem !important;
+  align-items: center;
+  min-height: 3.25rem;
+}
+
+#chatInp {
+  width: 100% !important;
+  min-height: 2.75rem;
+  height: auto !important;
+  font-size: 1rem !important;
+  box-sizing: border-box;
+}
+
+#sendButton {
+  width: 2.75rem !important;
+  height: 2.75rem !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+
+/* ---------- Settings / side panels fill width fluidly ---------- */
+.settings-panel,
+.ai-panel,
+.contacts-wrap {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---------- Landscape: keep EVERYTHING reachable ---------- */
+@media (orientation: landscape) {
+  body {
+    grid-template-rows: auto minmax(0, 1fr) auto !important;
+  }
+
+  /* do NOT hide filters — allow horizontal scroll instead */
+  #topList {
+    display: flex !important;
+    max-height: none;
+  }
+
+  main {
+    min-height: 0 !important;
+  }
+
+  footer > nav > ul > li {
+    min-height: 2.5rem;
+  }
+
+  #chatPage {
+    grid-template-rows: auto minmax(0, 1fr) auto !important;
+  }
+
+  #messages,
+  #chatPage #messages {
+    min-height: 0 !important;
+  }
+}
+
+/* Short landscape (phones rotated) */
+@media (orientation: landscape) and (max-height: 500px) {
+  #FN {
+    padding: 0.25rem 0.5rem !important;
+  }
+  #SINP {
+    min-height: 2rem;
+  }
+  #topList {
+    padding-bottom: 0.25rem;
+  }
+  #topList > li {
+    padding: 2px 8px !important;
+  }
+  footer > nav > ul {
+    min-height: 2.25rem;
+    padding: 0.15rem 0 !important;
+  }
+  #chatPage #chatHeader,
+  #chatPage #chatheader {
+    min-height: 2.5rem;
+    padding: 0.2rem 0.4rem !important;
+  }
+  #chatfooter,
+  #chatPage #chatfooter {
+    min-height: 2.75rem;
+    padding: 0.25rem 0.4rem !important;
+  }
+}
+
+/* ---------- Wide screens: expand layout, don't lock width ---------- */
+@media (min-width: 900px) {
+  #FN {
+    padding: 0.65rem 1.25rem !important;
+  }
+  main > .conv {
+    padding: 0.75rem 1.25rem !important;
+  }
+  #messages .ma,
+  #messages .you,
+  .msg {
+    max-width: min(70%, 40rem);
+  }
+  .settings-panel,
+  .ai-panel {
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+}
+
+/* ---------- Very small width ---------- */
+@media (max-width: 340px) {
+  main > .conv {
+    gap: 0.4rem;
+    padding: 0.5rem 0.5rem !important;
+  }
+  footer > nav > ul > li {
+    min-width: 2.25rem;
+  }
+}
+
+
+/* Chat open: hide bottom tab bar */
+body:has(#chatPage) > footer,
+body:has(#chatPage) footer,
+body.chat-open > footer,
+body.chat-open footer {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+body:has(#chatPage) > header,
+body:has(#chatPage) header,
+body.chat-open > header,
+body.chat-open header {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Autofill paint override (browser still may suggest; inputs use autocomplete=off) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #f5f7fa !important;
+  caret-color: #f5f7fa;
+  transition: background-color 99999s ease-out 0s;
+  box-shadow: 0 0 0 1000px #1f2633 inset !important;
+}

@@ -1,0 +1,37 @@
+/* Presence UI – add to index.html:
+   <link rel="stylesheet" href="assets/style/presence.css">
+*/
+
+.presence-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #9ca3af;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.presence-dot.online {
+  background: #22c55e;
+}
+
+.presence-dot.offline {
+  background: #9ca3af;
+}
+
+#chatPage #contentStatus {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+#typingIndicator {
+  display: none;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
