@@ -24,8 +24,7 @@ I work primarily on **backend** (APIs, auth, data modeling, realtime) and ship *
 
 ## Demo
 
-- Video: *[add your link]*
-- Live: *[add link or write “self-hosted / local demo”]*
+- Video: 
 
 ## Scope notes
 
@@ -35,4 +34,4 @@ Call quality depends on network path (STUN/TURN). This build focuses on a solid 
 
 Backend-focused fullstack developer. Open to backend roles, fullstack product work, and freelance realtime systems.
 
-*[Your name / contact / GitHub]*
+
